@@ -65,11 +65,13 @@ int main() {
             int c = 0;
             if (p != NULL) {
                 while (!feof(p)) {
-                    if (!c)printf("=============================\n        Estoque Atual\n=============================");
                     char item[100];
                     int qtd;
-                    if (fscanf(p, " %[^\n]s", item) != -1 && fscanf(p, "%d", &qtd) != -1) printf("\nNome: %s\nQuantidade: %d\n", item, qtd);
-                    c++;
+                    if (fscanf(p, " %[^\n]s", item) != -1 && fscanf(p, "%d", &qtd) != -1) {
+                        if (!c)printf("=============================\n        Estoque Atual\n=============================");
+                        printf("\nNome: %s\nQuantidade: %d\n", item, qtd);
+                        c++;
+                    }
                 }
             }
             if (!c) printf("\nO estoque esta vazio.\n");
